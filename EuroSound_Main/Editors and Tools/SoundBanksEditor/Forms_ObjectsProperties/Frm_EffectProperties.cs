@@ -92,27 +92,31 @@ namespace EuroSound_Application.SoundBanksEditor
                 {
                     foreach (KeyValuePair<uint, EXSample> storedSample in SelectedSound.Samples)
                     {
-                        string sampleName = ((Frm_Soundbanks_Main)OpenForm).TreeView_File.Nodes.Find(storedSample.Key.ToString(), true)[0].Text;
+                        TreeNode[] nodesCollection = ((Frm_Soundbanks_Main)OpenForm).TreeView_File.Nodes.Find(storedSample.Key.ToString(), true);
+                        if (nodesCollection.Length > 0)
+                        {
+                            string sampleName = nodesCollection[0].Text;
 
-                        //Insert item
-                        try
-                        {
-                            List_Samples.Invoke((MethodInvoker)delegate
+                            //Insert item
+                            try
                             {
-                                List_Samples.Items.Add(new ListViewItem
+                                List_Samples.Invoke((MethodInvoker)delegate
                                 {
-                                    Text = sampleName,
-                                    Tag = storedSample.Key,
-                                    ImageIndex = 0,
-                                    StateImageIndex = 0
+                                    List_Samples.Items.Add(new ListViewItem
+                                    {
+                                        Text = sampleName,
+                                        Tag = storedSample.Key,
+                                        ImageIndex = 0,
+                                        StateImageIndex = 0
+                                    });
                                 });
-                            });
-                            Thread.Sleep(60);
-                        }
-                        catch
-                        {
-                            //Quit loop, probably the control is disposed
-                            break;
+                                Thread.Sleep(60);
+                            }
+                            catch
+                            {
+                                //Quit loop, probably the control is disposed
+                                break;
+                            }
                         }
                     }
                 }

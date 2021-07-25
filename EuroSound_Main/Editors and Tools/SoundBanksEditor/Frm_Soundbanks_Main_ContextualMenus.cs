@@ -1,6 +1,7 @@
 ﻿using EuroSound_Application.ApplicationPreferences;
 using EuroSound_Application.ApplicationTargets;
 using EuroSound_Application.Clases;
+using EuroSound_Application.Clipboard_Stuff;
 using EuroSound_Application.CustomControls.DebugTypes;
 using EuroSound_Application.CustomControls.MoveMultiplesNodesForm;
 using EuroSound_Application.CustomControls.ObjectInstancesForm;
@@ -51,6 +52,132 @@ namespace EuroSound_Application.SoundBanksEditor
                         }
                     }
                 }
+            }
+        }
+
+        private void ContextMenuFolder_Paste_Click(object sender, EventArgs e)
+        {
+            //Sound object
+            if (Clipboard_SFX.SoundObject != null)
+            {
+                uint NewSoundKey = GenericFunctions.GetNewObjectID(ProjectInfo);
+                EXSound soundToAdd = new EXSound()
+                {
+                    Ducker = Clipboard_SFX.SoundObject.Ducker,
+                    DuckerLength = Clipboard_SFX.SoundObject.DuckerLength,
+                    Flags = Clipboard_SFX.SoundObject.Flags,
+                    Hashcode = Clipboard_SFX.SoundObject.Hashcode,
+                    InnerRadiusReal = Clipboard_SFX.SoundObject.InnerRadiusReal,
+                    MasterVolume = Clipboard_SFX.SoundObject.MasterVolume,
+                    MaxDelay = Clipboard_SFX.SoundObject.MaxDelay,
+                    MaxVoices = Clipboard_SFX.SoundObject.MaxVoices,
+                    MinDelay = Clipboard_SFX.SoundObject.MinDelay,
+                    OuterRadiusReal = Clipboard_SFX.SoundObject.OuterRadiusReal,
+                    OutputThisSound = Clipboard_SFX.SoundObject.OutputThisSound,
+                    Priority = Clipboard_SFX.SoundObject.Priority,
+                    ReverbSend = Clipboard_SFX.SoundObject.ReverbSend,
+                    OutputTarget = Clipboard_SFX.SoundObject.OutputTarget,
+                    TrackingType = Clipboard_SFX.SoundObject.TrackingType
+                };
+
+                //Add samples
+                uint[] childNodes = new uint[Clipboard_SFX.SoundObject.Samples.Count];
+                int index = 0;
+                foreach (var sample in Clipboard_SFX.SoundObject.Samples)
+                {
+                    uint newKey = GenericFunctions.GetNewObjectID(ProjectInfo);
+                    soundToAdd.Samples.Add(newKey, sample.Value);
+                    childNodes[index] = newKey;
+                    index++;
+                }
+
+                //Add new object
+                SoundsList.Add(NewSoundKey, soundToAdd);
+
+                //Create tree node
+                TreeNode nodeToAdd = new TreeNode
+                {
+                    Name = NewSoundKey.ToString(),
+                    Text = GenericFunctions.GetNextAvailableName(Clipboard_SFX.TreeNodeObject.Text, TreeView_File),
+                    SelectedImageIndex = Clipboard_SFX.TreeNodeObject.SelectedImageIndex,
+                    ImageIndex = Clipboard_SFX.TreeNodeObject.ImageIndex,
+                    Tag = Clipboard_SFX.TreeNodeObject.Tag,
+                    ForeColor = Clipboard_SFX.TreeNodeObject.ForeColor
+                };
+
+                //Add child nodes
+                if (Clipboard_SFX.TreeNodeObject.Nodes.Count > 0)
+                {
+                    for (int j = 0; j < Clipboard_SFX.TreeNodeObject.Nodes.Count; j++)
+                    {
+                        TreeNode childNodeToAdd = new TreeNode
+                        {
+                            Name = childNodes[j].ToString(),
+                            Text = GenericFunctions.GetNextAvailableName(Clipboard_SFX.TreeNodeObject.Nodes[j].Text, TreeView_File),
+                            SelectedImageIndex = Clipboard_SFX.TreeNodeObject.Nodes[j].SelectedImageIndex,
+                            ImageIndex = Clipboard_SFX.TreeNodeObject.Nodes[j].ImageIndex,
+                            Tag = Clipboard_SFX.TreeNodeObject.Nodes[j].Tag,
+                            ForeColor = Clipboard_SFX.TreeNodeObject.Nodes[j].ForeColor
+                        };
+                        nodeToAdd.Nodes.Add(childNodeToAdd);
+                    }
+                }
+
+                //Add node
+                if (Clipboard_SFX.IsStream)
+                {
+                    TreeView_File.Nodes[2].Nodes.Add(nodeToAdd);
+                }
+                else
+                {
+                    TreeView_File.Nodes[1].Nodes.Add(nodeToAdd);
+                }
+
+                //Clear class
+                Clipboard_SFX.SoundObject = null;
+                Clipboard_SFX.TreeNodeObject = null;
+            }
+
+            //Audio object
+            if (Clipboard_Audio.AudioObject != null)
+            {
+                if (!AudioDataDict.ContainsKey(Clipboard_Audio.MD5Audio))
+                {
+                    EXAudio audioObject = new EXAudio
+                    {
+                        Bits = Clipboard_Audio.AudioObject.Bits,
+                        Channels = Clipboard_Audio.AudioObject.Channels,
+                        Dependencies = Clipboard_Audio.AudioObject.Dependencies,
+                        Duration = Clipboard_Audio.AudioObject.Duration,
+                        Encoding = Clipboard_Audio.AudioObject.Encoding,
+                        Flags = Clipboard_Audio.AudioObject.Flags,
+                        Frequency = Clipboard_Audio.AudioObject.Frequency,
+                        LoopOffset = Clipboard_Audio.AudioObject.LoopOffset,
+                        LoadedFileName = Clipboard_Audio.AudioObject.LoadedFileName,
+                        PCMdata = Clipboard_Audio.AudioObject.PCMdata,
+                        PSIsample = Clipboard_Audio.AudioObject.PSIsample,
+                        FrequencyPS2 = Clipboard_Audio.AudioObject.FrequencyPS2
+                    };
+
+                    //Add new object
+                    AudioDataDict.Add(Clipboard_Audio.MD5Audio, audioObject);
+
+                    //Create tree node
+                    TreeNode nodeToAdd = new TreeNode
+                    {
+                        Name = Clipboard_Audio.MD5Audio,
+                        Text = Clipboard_Audio.TreeNodeObject.Text,
+                        SelectedImageIndex = Clipboard_Audio.TreeNodeObject.SelectedImageIndex,
+                        ImageIndex = Clipboard_Audio.TreeNodeObject.ImageIndex,
+                        Tag = Clipboard_Audio.TreeNodeObject.Tag,
+                        ForeColor = Clipboard_Audio.TreeNodeObject.ForeColor
+                    };
+                    TreeView_File.Nodes[0].Nodes.Add(nodeToAdd);
+                }
+
+                //Clear class
+                Clipboard_Audio.AudioObject = null;
+                Clipboard_Audio.TreeNodeObject = null;
             }
         }
 
@@ -117,6 +244,14 @@ namespace EuroSound_Application.SoundBanksEditor
                     //Add Item
                     TreeNodeFunctions.TreeNodeAddNewNode(TreeView_File.SelectedNode.Name, SampleID.ToString(), sampleName, 4, 4, (byte)Enumerations.TreeNodeType.Sample, true, true, false, SystemColors.WindowText, TreeView_File);
                     EXSoundbanksFunctions.AddSampleToSound(EXSoundbanksFunctions.ReturnSoundFromDictionary(uint.Parse(TreeView_File.SelectedNode.Name), SoundsList), SampleID, true);
+
+                    //Sort tree view
+                    if (GlobalPreferences.AutomaticallySortNodes)
+                    {
+                        Point scrollpos = TreeNodeFunctions.GetTreeViewScrollPos(TreeView_File);
+                        TreeView_File.TreeViewNodeSorter = new NodeSorter();
+                        TreeNodeFunctions.SetTreeViewScrollPos(TreeView_File, scrollpos);
+                    }
 
                     //Update project status variable
                     ProjectInfo.FileHasBeenModified = true;
@@ -341,6 +476,45 @@ namespace EuroSound_Application.SoundBanksEditor
             OpenSoundProperties(TreeView_File.SelectedNode);
         }
 
+        private void ContextMenuSound_Copy_Click(object sender, EventArgs e)
+        {
+            EXSound selectedSound = EXSoundbanksFunctions.ReturnSoundFromDictionary(uint.Parse(TreeView_File.SelectedNode.Name), SoundsList);
+            if (selectedSound != null)
+            {
+                Clipboard_SFX.TreeNodeObject = TreeView_File.SelectedNode;
+                Clipboard_SFX.SoundObject = new EXSound()
+                {
+                    Ducker = selectedSound.Ducker,
+                    DuckerLength = selectedSound.DuckerLength,
+                    Flags = selectedSound.Flags,
+                    Hashcode = selectedSound.Hashcode,
+                    InnerRadiusReal = selectedSound.InnerRadiusReal,
+                    MasterVolume = selectedSound.MasterVolume,
+                    MaxDelay = selectedSound.MaxDelay,
+                    MaxVoices = selectedSound.MaxVoices,
+                    MinDelay = selectedSound.MinDelay,
+                    OuterRadiusReal = selectedSound.OuterRadiusReal,
+                    OutputThisSound = selectedSound.OutputThisSound,
+                    Priority = selectedSound.Priority,
+                    ReverbSend = selectedSound.ReverbSend,
+                    OutputTarget = selectedSound.OutputTarget,
+                    Samples = new Dictionary<uint, EXSample>(selectedSound.Samples),
+                    TrackingType = selectedSound.TrackingType
+                };
+
+                //Check if is a stream
+                TreeNode nodeRootName = TreeNodeFunctions.FindRootNode(TreeView_File.SelectedNode);
+                if (nodeRootName.Name.Equals("StreamedSounds"))
+                {
+                    Clipboard_SFX.IsStream = true;
+                }
+                else
+                {
+                    Clipboard_SFX.IsStream = false;
+                }
+            }
+        }
+
         private void ContextMenu_Sound_Remove_Click(object sender, EventArgs e)
         {
             ToolsCommonFunctions.RemoveEngineXObject("Remove SFX:", (int)Enumerations.EXObjectType.EXSound, TreeView_File, TreeView_File.SelectedNode, SoundsList, null, ProjectInfo, UndoListSounds, UndoListNodes, MenuItem_Edit_Undo, Tag.ToString());
@@ -396,6 +570,31 @@ namespace EuroSound_Application.SoundBanksEditor
         private void ContextMenuAudio_Properties_Click(object sender, EventArgs e)
         {
             OpenAudioProperties(TreeView_File.SelectedNode);
+        }
+
+        private void ContextMenuAudio_Copy_Click(object sender, EventArgs e)
+        {
+            EXAudio selectedSound = TreeNodeFunctions.GetSelectedAudio(TreeView_File.SelectedNode.Name, AudioDataDict);
+            if (selectedSound != null)
+            {
+                Clipboard_Audio.MD5Audio = TreeView_File.SelectedNode.Name;
+                Clipboard_Audio.TreeNodeObject = TreeView_File.SelectedNode;
+                Clipboard_Audio.AudioObject = new EXAudio()
+                {
+                    Bits = selectedSound.Bits,
+                    Channels = selectedSound.Channels,
+                    Dependencies = selectedSound.Dependencies,
+                    Duration = selectedSound.Duration,
+                    Encoding = selectedSound.Encoding,
+                    Flags = selectedSound.Flags,
+                    Frequency = selectedSound.Frequency,
+                    LoopOffset = selectedSound.LoopOffset,
+                    LoadedFileName = selectedSound.LoadedFileName,
+                    PCMdata = selectedSound.PCMdata,
+                    PSIsample = selectedSound.PSIsample,
+                    FrequencyPS2 = selectedSound.FrequencyPS2
+                };
+            }
         }
 
         private void ContextMenuAudio_Remove_Click(object sender, EventArgs e)

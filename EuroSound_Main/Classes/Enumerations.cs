@@ -41,6 +41,12 @@
             Root = 8
         }
 
+        internal enum ClipboardObject : byte
+        {
+            cbSFX = 0,
+            cbAudio = 1,
+        }
+
         internal enum OutputTarget : byte
         {
             ALL = 0,

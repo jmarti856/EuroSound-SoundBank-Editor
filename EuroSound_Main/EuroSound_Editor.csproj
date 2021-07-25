@@ -190,6 +190,8 @@
     <Compile Include="Classes\EuroSound File Formats\EuroSound Interchange File\Loader\EISF_SoundBankFiles.cs" />
     <Compile Include="Classes\EuroSound File Formats\EuroSound Interchange File\Loader\ESIF_MusicBankFile.cs" />
     <Compile Include="Classes\EuroSound File Formats\EuroSound Interchange File\Loader\ESIF_StreamBankFile.cs" />
+    <Compile Include="Clipboard Stuff\Clipboard_Audio.cs" />
+    <Compile Include="Clipboard Stuff\Clipboard_SFX.cs" />
     <Compile Include="CustomControls\EuroSound_Graphics.cs">
       <SubType>Form</SubType>
     </Compile>
