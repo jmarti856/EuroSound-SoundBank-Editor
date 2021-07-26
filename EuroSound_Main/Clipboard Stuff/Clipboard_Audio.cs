@@ -5,8 +5,8 @@ namespace EuroSound_Application.Clipboard_Stuff
 {
     public class Clipboard_Audio
     {
-        public static string MD5Audio { get; set; }
-        public static TreeNode TreeNodeObject { get; set; }
-        public static EXAudio AudioObject { get; set; }
+        public string MD5Audio { get; set; }
+        public TreeNode TreeNodeObject { get; set; }
+        public EXAudio AudioObject { get; set; }
     }
 }

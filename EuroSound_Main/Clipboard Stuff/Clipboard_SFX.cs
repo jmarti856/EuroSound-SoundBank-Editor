@@ -3,10 +3,10 @@ using System.Windows.Forms;
 
 namespace EuroSound_Application.Clipboard_Stuff
 {
-    public static class Clipboard_SFX
+    public class Clipboard_SFX
     {
-        public static bool IsStream { get; set; } = false;
-        public static TreeNode TreeNodeObject { get; set; }
-        public static EXSound SoundObject { get; set; }
+        public bool IsStream { get; set; } = false;
+        public TreeNode TreeNodeObject { get; set; }
+        public EXSound SoundObject { get; set; }
     }
 }
