@@ -193,6 +193,7 @@
     <Compile Include="Clipboard Stuff\Clipboard_Audio.cs" />
     <Compile Include="Clipboard Stuff\Clipboard_ContentLists.cs" />
     <Compile Include="Clipboard Stuff\Clipboard_SFX.cs" />
+    <Compile Include="Clipboard Stuff\Clipboard_Target.cs" />
     <Compile Include="CustomControls\EuroSound_Graphics.cs">
       <SubType>Form</SubType>
     </Compile>

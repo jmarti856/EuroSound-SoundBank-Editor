@@ -108,12 +108,6 @@ namespace EuroSound_Application.SoundBanksEditor
             this.Textbox_HashcodesCount = new System.Windows.Forms.TextBox();
             this.Label_HashcodesCount = new System.Windows.Forms.Label();
             this.Button_UpdateList_Hashcodes = new System.Windows.Forms.Button();
-            this.ListView_Hashcodes = new EuroSound_Application.CustomControls.ListViewColumnSorting.ListView_ColumnSortingClick();
-            this.Col_Hashcode_OK = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Col_Hashcode = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Col_Hashcode_Label = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Col_UsedIn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Col_Target = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ContextMenu_HashcodesList = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.MenuItem_CopyHashcode = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuItem_CopyLabel = new System.Windows.Forms.ToolStripMenuItem();
@@ -124,27 +118,11 @@ namespace EuroSound_Application.SoundBanksEditor
             this.Button_Stop_WavUpdate = new System.Windows.Forms.Button();
             this.Textbox_DataCount = new System.Windows.Forms.TextBox();
             this.Label_ItemsCountWav = new System.Windows.Forms.Label();
-            this.ListView_WavHeaderData = new EuroSound_Application.CustomControls.ListViewColumnSorting.ListView_ColumnSortingClick();
-            this.Col_Name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Col_LoopOffset = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Col_Flags = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Col_Frequency = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Col_FrequencyPS2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Col_Channels = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Col_Bits = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Col_Data = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Col_Encoding = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Col_Duration = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.TabPage_StreamData = new System.Windows.Forms.TabPage();
             this.Button_StopStreamData = new System.Windows.Forms.Button();
             this.Textbox_StreamFilesCount = new System.Windows.Forms.TextBox();
             this.Label_StreamFilesCount = new System.Windows.Forms.Label();
             this.Button_UpdateList_StreamData = new System.Windows.Forms.Button();
-            this.ListView_StreamData = new EuroSound_Application.CustomControls.ListViewColumnSorting.ListView_ColumnSortingClick();
-            this.Col_StreamName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Col_FileRef = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Col_Sound = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Col_StoredIn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ContextMenu_Audio = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.ContextMenuAudio_Usage = new System.Windows.Forms.ToolStripMenuItem();
             this.ContextMenuAudio_Separator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -159,12 +137,35 @@ namespace EuroSound_Application.SoundBanksEditor
             this.SplitContainer_SoundbanksForm = new System.Windows.Forms.SplitContainer();
             this.SplitContainter_Info = new System.Windows.Forms.SplitContainer();
             this.ContextMenu_Targets = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.ContextMenuTargets_Copy = new System.Windows.Forms.ToolStripMenuItem();
             this.ContextMenuTargets_Delete = new System.Windows.Forms.ToolStripMenuItem();
             this.ContextMenuTargets_Properties = new System.Windows.Forms.ToolStripMenuItem();
             this.ContextMenuTargets_Separator1 = new System.Windows.Forms.ToolStripSeparator();
             this.ContextMenuTargets_Output = new System.Windows.Forms.ToolStripMenuItem();
             this.ContextMenuTargets_Separator2 = new System.Windows.Forms.ToolStripSeparator();
             this.ContextMenuTargets_TextColor = new System.Windows.Forms.ToolStripMenuItem();
+            this.ListView_WavHeaderData = new EuroSound_Application.CustomControls.ListViewColumnSorting.ListView_ColumnSortingClick();
+            this.Col_Name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Col_LoopOffset = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Col_Flags = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Col_Frequency = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Col_FrequencyPS2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Col_Channels = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Col_Bits = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Col_Data = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Col_Encoding = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Col_Duration = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.ListView_StreamData = new EuroSound_Application.CustomControls.ListViewColumnSorting.ListView_ColumnSortingClick();
+            this.Col_StreamName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Col_FileRef = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Col_Sound = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Col_StoredIn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.ListView_Hashcodes = new EuroSound_Application.CustomControls.ListViewColumnSorting.ListView_ColumnSortingClick();
+            this.Col_Hashcode_OK = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Col_Hashcode = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Col_Hashcode_Label = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Col_UsedIn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Col_Target = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ContextMenu_Folders.SuspendLayout();
             this.ContextMenu_Sound.SuspendLayout();
             this.MainMenu.SuspendLayout();
@@ -271,7 +272,7 @@ namespace EuroSound_Application.SoundBanksEditor
             this.ContextMenuFolders_Separator3,
             this.ContextMenuFolder_TextColor});
             this.ContextMenu_Folders.Name = "contextMenuStrip1";
-            this.ContextMenu_Folders.Size = new System.Drawing.Size(181, 264);
+            this.ContextMenu_Folders.Size = new System.Drawing.Size(137, 242);
             // 
             // ContextMenuFolders_Folder
             // 
@@ -287,7 +288,7 @@ namespace EuroSound_Application.SoundBanksEditor
             this.ContextMenuFolders_Separator7,
             this.ContextMenuFolder_Move});
             this.ContextMenuFolders_Folder.Name = "ContextMenuFolders_Folder";
-            this.ContextMenuFolders_Folder.Size = new System.Drawing.Size(180, 22);
+            this.ContextMenuFolders_Folder.Size = new System.Drawing.Size(136, 22);
             this.ContextMenuFolders_Folder.Text = "Folder";
             // 
             // ContextMenuFolders_New
@@ -355,47 +356,47 @@ namespace EuroSound_Application.SoundBanksEditor
             // ContextMenuFolders_Separator1
             // 
             this.ContextMenuFolders_Separator1.Name = "ContextMenuFolders_Separator1";
-            this.ContextMenuFolders_Separator1.Size = new System.Drawing.Size(177, 6);
+            this.ContextMenuFolders_Separator1.Size = new System.Drawing.Size(133, 6);
             // 
             // ContextMenuFolder_AddSound
             // 
             this.ContextMenuFolder_AddSound.Name = "ContextMenuFolder_AddSound";
-            this.ContextMenuFolder_AddSound.Size = new System.Drawing.Size(180, 22);
+            this.ContextMenuFolder_AddSound.Size = new System.Drawing.Size(136, 22);
             this.ContextMenuFolder_AddSound.Text = "New";
             this.ContextMenuFolder_AddSound.Click += new System.EventHandler(this.ContextMenu_Folders_AddSound_Click);
             // 
             // ContextMenuFolder_AddAudio
             // 
             this.ContextMenuFolder_AddAudio.Name = "ContextMenuFolder_AddAudio";
-            this.ContextMenuFolder_AddAudio.Size = new System.Drawing.Size(180, 22);
+            this.ContextMenuFolder_AddAudio.Size = new System.Drawing.Size(136, 22);
             this.ContextMenuFolder_AddAudio.Text = "New";
             this.ContextMenuFolder_AddAudio.Click += new System.EventHandler(this.ContextMenu_Folders_AddAudio_Click);
             // 
             // ContextMenuFolder_AddTarget
             // 
             this.ContextMenuFolder_AddTarget.Name = "ContextMenuFolder_AddTarget";
-            this.ContextMenuFolder_AddTarget.Size = new System.Drawing.Size(180, 22);
+            this.ContextMenuFolder_AddTarget.Size = new System.Drawing.Size(136, 22);
             this.ContextMenuFolder_AddTarget.Text = "New";
             this.ContextMenuFolder_AddTarget.Click += new System.EventHandler(this.ContextMenuFolder_AddTarget_Click);
             // 
             // ContextMenuFolder_Paste
             // 
             this.ContextMenuFolder_Paste.Name = "ContextMenuFolder_Paste";
-            this.ContextMenuFolder_Paste.Size = new System.Drawing.Size(180, 22);
+            this.ContextMenuFolder_Paste.Size = new System.Drawing.Size(136, 22);
             this.ContextMenuFolder_Paste.Text = "Paste";
             this.ContextMenuFolder_Paste.Click += new System.EventHandler(this.ContextMenuFolder_Paste_Click);
             // 
             // ContextMenuFolder_Rename
             // 
             this.ContextMenuFolder_Rename.Name = "ContextMenuFolder_Rename";
-            this.ContextMenuFolder_Rename.Size = new System.Drawing.Size(180, 22);
+            this.ContextMenuFolder_Rename.Size = new System.Drawing.Size(136, 22);
             this.ContextMenuFolder_Rename.Text = "Rename";
             this.ContextMenuFolder_Rename.Click += new System.EventHandler(this.ContextMenuFolder_Rename_Click);
             // 
             // ContextMenuFolder_ExportSounds
             // 
             this.ContextMenuFolder_ExportSounds.Name = "ContextMenuFolder_ExportSounds";
-            this.ContextMenuFolder_ExportSounds.Size = new System.Drawing.Size(180, 22);
+            this.ContextMenuFolder_ExportSounds.Size = new System.Drawing.Size(136, 22);
             this.ContextMenuFolder_ExportSounds.Text = "Export...";
             this.ContextMenuFolder_ExportSounds.Click += new System.EventHandler(this.ContextMenuFolder_ExportSounds_Click);
             // 
@@ -405,7 +406,7 @@ namespace EuroSound_Application.SoundBanksEditor
             this.ContextMenuFolder_ImportESIF,
             this.ContextMenuFolder_ImportESAF});
             this.ContextMenuFolder_Import.Name = "ContextMenuFolder_Import";
-            this.ContextMenuFolder_Import.Size = new System.Drawing.Size(180, 22);
+            this.ContextMenuFolder_Import.Size = new System.Drawing.Size(136, 22);
             this.ContextMenuFolder_Import.Text = "Import...";
             // 
             // ContextMenuFolder_ImportESIF
@@ -425,24 +426,24 @@ namespace EuroSound_Application.SoundBanksEditor
             // ContextMenuFolders_Separator2
             // 
             this.ContextMenuFolders_Separator2.Name = "ContextMenuFolders_Separator2";
-            this.ContextMenuFolders_Separator2.Size = new System.Drawing.Size(177, 6);
+            this.ContextMenuFolders_Separator2.Size = new System.Drawing.Size(133, 6);
             // 
             // ContextMenuFolder_Purge
             // 
             this.ContextMenuFolder_Purge.Name = "ContextMenuFolder_Purge";
-            this.ContextMenuFolder_Purge.Size = new System.Drawing.Size(180, 22);
+            this.ContextMenuFolder_Purge.Size = new System.Drawing.Size(136, 22);
             this.ContextMenuFolder_Purge.Text = "Purge";
             this.ContextMenuFolder_Purge.Click += new System.EventHandler(this.ContextMenuFolder_Purge_Click);
             // 
             // ContextMenuFolders_Separator3
             // 
             this.ContextMenuFolders_Separator3.Name = "ContextMenuFolders_Separator3";
-            this.ContextMenuFolders_Separator3.Size = new System.Drawing.Size(177, 6);
+            this.ContextMenuFolders_Separator3.Size = new System.Drawing.Size(133, 6);
             // 
             // ContextMenuFolder_TextColor
             // 
             this.ContextMenuFolder_TextColor.Name = "ContextMenuFolder_TextColor";
-            this.ContextMenuFolder_TextColor.Size = new System.Drawing.Size(180, 22);
+            this.ContextMenuFolder_TextColor.Size = new System.Drawing.Size(136, 22);
             this.ContextMenuFolder_TextColor.Text = "Text Color...";
             this.ContextMenuFolder_TextColor.Click += new System.EventHandler(this.ContextMenuFolders_TextColor_Click);
             // 
@@ -752,7 +753,7 @@ namespace EuroSound_Application.SoundBanksEditor
             // Button_UpdateList_WavData
             // 
             this.Button_UpdateList_WavData.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.Button_UpdateList_WavData.Location = new System.Drawing.Point(409, 241);
+            this.Button_UpdateList_WavData.Location = new System.Drawing.Point(409, 240);
             this.Button_UpdateList_WavData.Name = "Button_UpdateList_WavData";
             this.Button_UpdateList_WavData.Size = new System.Drawing.Size(75, 23);
             this.Button_UpdateList_WavData.TabIndex = 4;
@@ -772,7 +773,7 @@ namespace EuroSound_Application.SoundBanksEditor
             this.GroupBox_Hashcodes.Dock = System.Windows.Forms.DockStyle.Fill;
             this.GroupBox_Hashcodes.Location = new System.Drawing.Point(0, 0);
             this.GroupBox_Hashcodes.Name = "GroupBox_Hashcodes";
-            this.GroupBox_Hashcodes.Size = new System.Drawing.Size(579, 297);
+            this.GroupBox_Hashcodes.Size = new System.Drawing.Size(579, 298);
             this.GroupBox_Hashcodes.TabIndex = 3;
             this.GroupBox_Hashcodes.TabStop = false;
             this.GroupBox_Hashcodes.Text = "Hashcodes:";
@@ -781,7 +782,7 @@ namespace EuroSound_Application.SoundBanksEditor
             // 
             this.Textbox_GroupHashCode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.Textbox_GroupHashCode.BackColor = System.Drawing.SystemColors.Window;
-            this.Textbox_GroupHashCode.Location = new System.Drawing.Point(310, 270);
+            this.Textbox_GroupHashCode.Location = new System.Drawing.Point(310, 271);
             this.Textbox_GroupHashCode.Name = "Textbox_GroupHashCode";
             this.Textbox_GroupHashCode.ReadOnly = true;
             this.Textbox_GroupHashCode.Size = new System.Drawing.Size(100, 20);
@@ -792,7 +793,7 @@ namespace EuroSound_Application.SoundBanksEditor
             this.Label_GroupHashCode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.Label_GroupHashCode.AutoSize = true;
             this.Label_GroupHashCode.ForeColor = System.Drawing.Color.Blue;
-            this.Label_GroupHashCode.Location = new System.Drawing.Point(213, 273);
+            this.Label_GroupHashCode.Location = new System.Drawing.Point(213, 274);
             this.Label_GroupHashCode.Name = "Label_GroupHashCode";
             this.Label_GroupHashCode.Size = new System.Drawing.Size(91, 13);
             this.Label_GroupHashCode.TabIndex = 3;
@@ -802,7 +803,7 @@ namespace EuroSound_Application.SoundBanksEditor
             // 
             this.Button_StopHashcodeUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.Button_StopHashcodeUpdate.Enabled = false;
-            this.Button_StopHashcodeUpdate.Location = new System.Drawing.Point(498, 268);
+            this.Button_StopHashcodeUpdate.Location = new System.Drawing.Point(498, 269);
             this.Button_StopHashcodeUpdate.Name = "Button_StopHashcodeUpdate";
             this.Button_StopHashcodeUpdate.Size = new System.Drawing.Size(75, 23);
             this.Button_StopHashcodeUpdate.TabIndex = 6;
@@ -814,7 +815,7 @@ namespace EuroSound_Application.SoundBanksEditor
             // 
             this.Textbox_HashcodesCount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.Textbox_HashcodesCount.BackColor = System.Drawing.SystemColors.Window;
-            this.Textbox_HashcodesCount.Location = new System.Drawing.Point(107, 270);
+            this.Textbox_HashcodesCount.Location = new System.Drawing.Point(107, 271);
             this.Textbox_HashcodesCount.Name = "Textbox_HashcodesCount";
             this.Textbox_HashcodesCount.ReadOnly = true;
             this.Textbox_HashcodesCount.Size = new System.Drawing.Size(100, 20);
@@ -826,7 +827,7 @@ namespace EuroSound_Application.SoundBanksEditor
             this.Label_HashcodesCount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.Label_HashcodesCount.AutoSize = true;
             this.Label_HashcodesCount.ForeColor = System.Drawing.Color.ForestGreen;
-            this.Label_HashcodesCount.Location = new System.Drawing.Point(6, 273);
+            this.Label_HashcodesCount.Location = new System.Drawing.Point(6, 274);
             this.Label_HashcodesCount.Name = "Label_HashcodesCount";
             this.Label_HashcodesCount.Size = new System.Drawing.Size(95, 13);
             this.Label_HashcodesCount.TabIndex = 1;
@@ -835,61 +836,13 @@ namespace EuroSound_Application.SoundBanksEditor
             // Button_UpdateList_Hashcodes
             // 
             this.Button_UpdateList_Hashcodes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.Button_UpdateList_Hashcodes.Location = new System.Drawing.Point(417, 268);
+            this.Button_UpdateList_Hashcodes.Location = new System.Drawing.Point(417, 269);
             this.Button_UpdateList_Hashcodes.Name = "Button_UpdateList_Hashcodes";
             this.Button_UpdateList_Hashcodes.Size = new System.Drawing.Size(75, 23);
             this.Button_UpdateList_Hashcodes.TabIndex = 5;
             this.Button_UpdateList_Hashcodes.Text = "Update";
             this.Button_UpdateList_Hashcodes.UseVisualStyleBackColor = true;
             this.Button_UpdateList_Hashcodes.Click += new System.EventHandler(this.Button_UpdateList_Hashcodes_Click);
-            // 
-            // ListView_Hashcodes
-            // 
-            this.ListView_Hashcodes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.ListView_Hashcodes.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.Col_Hashcode_OK,
-            this.Col_Hashcode,
-            this.Col_Hashcode_Label,
-            this.Col_UsedIn,
-            this.Col_Target});
-            this.ListView_Hashcodes.ContextMenuStrip = this.ContextMenu_HashcodesList;
-            this.ListView_Hashcodes.FullRowSelect = true;
-            this.ListView_Hashcodes.GridLines = true;
-            this.ListView_Hashcodes.HideSelection = false;
-            this.ListView_Hashcodes.Location = new System.Drawing.Point(6, 19);
-            this.ListView_Hashcodes.Name = "ListView_Hashcodes";
-            this.ListView_Hashcodes.Size = new System.Drawing.Size(567, 243);
-            this.ListView_Hashcodes.SmallImageList = this.ImageList_ListView;
-            this.ListView_Hashcodes.TabIndex = 0;
-            this.ListView_Hashcodes.UseCompatibleStateImageBehavior = false;
-            this.ListView_Hashcodes.View = System.Windows.Forms.View.Details;
-            this.ListView_Hashcodes.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.ListView_Hashcodes_MouseDoubleClick);
-            // 
-            // Col_Hashcode_OK
-            // 
-            this.Col_Hashcode_OK.Text = "Status";
-            this.Col_Hashcode_OK.Width = 65;
-            // 
-            // Col_Hashcode
-            // 
-            this.Col_Hashcode.Text = "Hashcode";
-            this.Col_Hashcode.Width = 79;
-            // 
-            // Col_Hashcode_Label
-            // 
-            this.Col_Hashcode_Label.Text = "Label";
-            this.Col_Hashcode_Label.Width = 167;
-            // 
-            // Col_UsedIn
-            // 
-            this.Col_UsedIn.Text = "Used By";
-            this.Col_UsedIn.Width = 160;
-            // 
-            // Col_Target
-            // 
-            this.Col_Target.Text = "Target";
             // 
             // ContextMenu_HashcodesList
             // 
@@ -929,7 +882,7 @@ namespace EuroSound_Application.SoundBanksEditor
             this.TabControlDataViewer.Location = new System.Drawing.Point(0, 0);
             this.TabControlDataViewer.Name = "TabControlDataViewer";
             this.TabControlDataViewer.SelectedIndex = 0;
-            this.TabControlDataViewer.Size = new System.Drawing.Size(579, 296);
+            this.TabControlDataViewer.Size = new System.Drawing.Size(579, 295);
             this.TabControlDataViewer.TabIndex = 2;
             // 
             // TabPage_WavHeaderData
@@ -944,14 +897,14 @@ namespace EuroSound_Application.SoundBanksEditor
             this.TabPage_WavHeaderData.Location = new System.Drawing.Point(4, 22);
             this.TabPage_WavHeaderData.Name = "TabPage_WavHeaderData";
             this.TabPage_WavHeaderData.Padding = new System.Windows.Forms.Padding(3);
-            this.TabPage_WavHeaderData.Size = new System.Drawing.Size(571, 270);
+            this.TabPage_WavHeaderData.Size = new System.Drawing.Size(571, 269);
             this.TabPage_WavHeaderData.TabIndex = 1;
             this.TabPage_WavHeaderData.Text = "WAV Data";
             // 
             // Button_Statistics
             // 
             this.Button_Statistics.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.Button_Statistics.Location = new System.Drawing.Point(328, 241);
+            this.Button_Statistics.Location = new System.Drawing.Point(328, 240);
             this.Button_Statistics.Name = "Button_Statistics";
             this.Button_Statistics.Size = new System.Drawing.Size(75, 23);
             this.Button_Statistics.TabIndex = 3;
@@ -963,7 +916,7 @@ namespace EuroSound_Application.SoundBanksEditor
             // 
             this.Button_Stop_WavUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.Button_Stop_WavUpdate.Enabled = false;
-            this.Button_Stop_WavUpdate.Location = new System.Drawing.Point(490, 241);
+            this.Button_Stop_WavUpdate.Location = new System.Drawing.Point(490, 240);
             this.Button_Stop_WavUpdate.Name = "Button_Stop_WavUpdate";
             this.Button_Stop_WavUpdate.Size = new System.Drawing.Size(75, 23);
             this.Button_Stop_WavUpdate.TabIndex = 5;
@@ -975,7 +928,7 @@ namespace EuroSound_Application.SoundBanksEditor
             // 
             this.Textbox_DataCount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.Textbox_DataCount.BackColor = System.Drawing.SystemColors.Window;
-            this.Textbox_DataCount.Location = new System.Drawing.Point(74, 243);
+            this.Textbox_DataCount.Location = new System.Drawing.Point(74, 242);
             this.Textbox_DataCount.Name = "Textbox_DataCount";
             this.Textbox_DataCount.ReadOnly = true;
             this.Textbox_DataCount.Size = new System.Drawing.Size(100, 20);
@@ -987,85 +940,11 @@ namespace EuroSound_Application.SoundBanksEditor
             this.Label_ItemsCountWav.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.Label_ItemsCountWav.AutoSize = true;
             this.Label_ItemsCountWav.ForeColor = System.Drawing.Color.ForestGreen;
-            this.Label_ItemsCountWav.Location = new System.Drawing.Point(6, 246);
+            this.Label_ItemsCountWav.Location = new System.Drawing.Point(6, 245);
             this.Label_ItemsCountWav.Name = "Label_ItemsCountWav";
             this.Label_ItemsCountWav.Size = new System.Drawing.Size(62, 13);
             this.Label_ItemsCountWav.TabIndex = 1;
             this.Label_ItemsCountWav.Text = "Files Count:";
-            // 
-            // ListView_WavHeaderData
-            // 
-            this.ListView_WavHeaderData.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.ListView_WavHeaderData.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.Col_Name,
-            this.Col_LoopOffset,
-            this.Col_Flags,
-            this.Col_Frequency,
-            this.Col_FrequencyPS2,
-            this.Col_Channels,
-            this.Col_Bits,
-            this.Col_Data,
-            this.Col_Encoding,
-            this.Col_Duration});
-            this.ListView_WavHeaderData.FullRowSelect = true;
-            this.ListView_WavHeaderData.GridLines = true;
-            this.ListView_WavHeaderData.HideSelection = false;
-            this.ListView_WavHeaderData.Location = new System.Drawing.Point(6, 6);
-            this.ListView_WavHeaderData.Name = "ListView_WavHeaderData";
-            this.ListView_WavHeaderData.Size = new System.Drawing.Size(559, 229);
-            this.ListView_WavHeaderData.TabIndex = 2;
-            this.ListView_WavHeaderData.UseCompatibleStateImageBehavior = false;
-            this.ListView_WavHeaderData.View = System.Windows.Forms.View.Details;
-            this.ListView_WavHeaderData.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.ListView_WavHeaderData_MouseDoubleClick);
-            // 
-            // Col_Name
-            // 
-            this.Col_Name.Text = "Name";
-            this.Col_Name.Width = 166;
-            // 
-            // Col_LoopOffset
-            // 
-            this.Col_LoopOffset.Text = "Loop Offset";
-            this.Col_LoopOffset.Width = 69;
-            // 
-            // Col_Flags
-            // 
-            this.Col_Flags.Text = "Flags";
-            // 
-            // Col_Frequency
-            // 
-            this.Col_Frequency.Text = "Frequency PC";
-            this.Col_Frequency.Width = 90;
-            // 
-            // Col_FrequencyPS2
-            // 
-            this.Col_FrequencyPS2.Text = "Frequency PS2";
-            this.Col_FrequencyPS2.Width = 90;
-            // 
-            // Col_Channels
-            // 
-            this.Col_Channels.Text = "Channels";
-            // 
-            // Col_Bits
-            // 
-            this.Col_Bits.Text = "Bits";
-            this.Col_Bits.Width = 38;
-            // 
-            // Col_Data
-            // 
-            this.Col_Data.Text = "Data Length";
-            this.Col_Data.Width = 74;
-            // 
-            // Col_Encoding
-            // 
-            this.Col_Encoding.Text = "Encoding";
-            // 
-            // Col_Duration
-            // 
-            this.Col_Duration.Text = "Duration (ms)";
-            this.Col_Duration.Width = 75;
             // 
             // TabPage_StreamData
             // 
@@ -1078,7 +957,7 @@ namespace EuroSound_Application.SoundBanksEditor
             this.TabPage_StreamData.Location = new System.Drawing.Point(4, 22);
             this.TabPage_StreamData.Name = "TabPage_StreamData";
             this.TabPage_StreamData.Padding = new System.Windows.Forms.Padding(3);
-            this.TabPage_StreamData.Size = new System.Drawing.Size(571, 259);
+            this.TabPage_StreamData.Size = new System.Drawing.Size(571, 269);
             this.TabPage_StreamData.TabIndex = 0;
             this.TabPage_StreamData.Text = "Stream Data";
             // 
@@ -1086,7 +965,7 @@ namespace EuroSound_Application.SoundBanksEditor
             // 
             this.Button_StopStreamData.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.Button_StopStreamData.Enabled = false;
-            this.Button_StopStreamData.Location = new System.Drawing.Point(490, 230);
+            this.Button_StopStreamData.Location = new System.Drawing.Point(490, 241);
             this.Button_StopStreamData.Name = "Button_StopStreamData";
             this.Button_StopStreamData.Size = new System.Drawing.Size(75, 23);
             this.Button_StopStreamData.TabIndex = 4;
@@ -1097,7 +976,7 @@ namespace EuroSound_Application.SoundBanksEditor
             // Textbox_StreamFilesCount
             // 
             this.Textbox_StreamFilesCount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.Textbox_StreamFilesCount.Location = new System.Drawing.Point(124, 232);
+            this.Textbox_StreamFilesCount.Location = new System.Drawing.Point(124, 243);
             this.Textbox_StreamFilesCount.Name = "Textbox_StreamFilesCount";
             this.Textbox_StreamFilesCount.Size = new System.Drawing.Size(100, 20);
             this.Textbox_StreamFilesCount.TabIndex = 2;
@@ -1108,7 +987,7 @@ namespace EuroSound_Application.SoundBanksEditor
             this.Label_StreamFilesCount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.Label_StreamFilesCount.AutoSize = true;
             this.Label_StreamFilesCount.ForeColor = System.Drawing.Color.ForestGreen;
-            this.Label_StreamFilesCount.Location = new System.Drawing.Point(6, 235);
+            this.Label_StreamFilesCount.Location = new System.Drawing.Point(6, 246);
             this.Label_StreamFilesCount.Name = "Label_StreamFilesCount";
             this.Label_StreamFilesCount.Size = new System.Drawing.Size(112, 13);
             this.Label_StreamFilesCount.TabIndex = 1;
@@ -1117,54 +996,13 @@ namespace EuroSound_Application.SoundBanksEditor
             // Button_UpdateList_StreamData
             // 
             this.Button_UpdateList_StreamData.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.Button_UpdateList_StreamData.Location = new System.Drawing.Point(409, 230);
+            this.Button_UpdateList_StreamData.Location = new System.Drawing.Point(409, 241);
             this.Button_UpdateList_StreamData.Name = "Button_UpdateList_StreamData";
             this.Button_UpdateList_StreamData.Size = new System.Drawing.Size(75, 23);
             this.Button_UpdateList_StreamData.TabIndex = 3;
             this.Button_UpdateList_StreamData.Text = "Update";
             this.Button_UpdateList_StreamData.UseVisualStyleBackColor = true;
             this.Button_UpdateList_StreamData.Click += new System.EventHandler(this.Button_UpdateList_StreamData_Click);
-            // 
-            // ListView_StreamData
-            // 
-            this.ListView_StreamData.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.ListView_StreamData.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.Col_StreamName,
-            this.Col_FileRef,
-            this.Col_Sound,
-            this.Col_StoredIn});
-            this.ListView_StreamData.FullRowSelect = true;
-            this.ListView_StreamData.GridLines = true;
-            this.ListView_StreamData.HideSelection = false;
-            this.ListView_StreamData.Location = new System.Drawing.Point(6, 6);
-            this.ListView_StreamData.Name = "ListView_StreamData";
-            this.ListView_StreamData.Size = new System.Drawing.Size(559, 218);
-            this.ListView_StreamData.TabIndex = 0;
-            this.ListView_StreamData.UseCompatibleStateImageBehavior = false;
-            this.ListView_StreamData.View = System.Windows.Forms.View.Details;
-            this.ListView_StreamData.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.ListView_StreamData_MouseDoubleClick);
-            // 
-            // Col_StreamName
-            // 
-            this.Col_StreamName.Text = "Name";
-            this.Col_StreamName.Width = 168;
-            // 
-            // Col_FileRef
-            // 
-            this.Col_FileRef.Text = "File Ref";
-            this.Col_FileRef.Width = 62;
-            // 
-            // Col_Sound
-            // 
-            this.Col_Sound.Text = "Sound";
-            this.Col_Sound.Width = 105;
-            // 
-            // Col_StoredIn
-            // 
-            this.Col_StoredIn.Text = "Stored In";
-            this.Col_StoredIn.Width = 178;
             // 
             // ContextMenu_Audio
             // 
@@ -1290,12 +1128,13 @@ namespace EuroSound_Application.SoundBanksEditor
             // 
             this.SplitContainter_Info.Panel2.Controls.Add(this.GroupBox_Hashcodes);
             this.SplitContainter_Info.Size = new System.Drawing.Size(579, 597);
-            this.SplitContainter_Info.SplitterDistance = 296;
+            this.SplitContainter_Info.SplitterDistance = 295;
             this.SplitContainter_Info.TabIndex = 0;
             // 
             // ContextMenu_Targets
             // 
             this.ContextMenu_Targets.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ContextMenuTargets_Copy,
             this.ContextMenuTargets_Delete,
             this.ContextMenuTargets_Properties,
             this.ContextMenuTargets_Separator1,
@@ -1303,7 +1142,14 @@ namespace EuroSound_Application.SoundBanksEditor
             this.ContextMenuTargets_Separator2,
             this.ContextMenuTargets_TextColor});
             this.ContextMenu_Targets.Name = "ContextMenu_Targets";
-            this.ContextMenu_Targets.Size = new System.Drawing.Size(137, 104);
+            this.ContextMenu_Targets.Size = new System.Drawing.Size(137, 126);
+            // 
+            // ContextMenuTargets_Copy
+            // 
+            this.ContextMenuTargets_Copy.Name = "ContextMenuTargets_Copy";
+            this.ContextMenuTargets_Copy.Size = new System.Drawing.Size(136, 22);
+            this.ContextMenuTargets_Copy.Text = "Copy";
+            this.ContextMenuTargets_Copy.Click += new System.EventHandler(this.ContextMenuTargets_Copy_Click);
             // 
             // ContextMenuTargets_Delete
             // 
@@ -1342,6 +1188,169 @@ namespace EuroSound_Application.SoundBanksEditor
             this.ContextMenuTargets_TextColor.Size = new System.Drawing.Size(136, 22);
             this.ContextMenuTargets_TextColor.Text = "Text Color...";
             this.ContextMenuTargets_TextColor.Click += new System.EventHandler(this.ContextMenuTargets_TextColor_Click);
+            // 
+            // ListView_WavHeaderData
+            // 
+            this.ListView_WavHeaderData.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ListView_WavHeaderData.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.Col_Name,
+            this.Col_LoopOffset,
+            this.Col_Flags,
+            this.Col_Frequency,
+            this.Col_FrequencyPS2,
+            this.Col_Channels,
+            this.Col_Bits,
+            this.Col_Data,
+            this.Col_Encoding,
+            this.Col_Duration});
+            this.ListView_WavHeaderData.FullRowSelect = true;
+            this.ListView_WavHeaderData.GridLines = true;
+            this.ListView_WavHeaderData.HideSelection = false;
+            this.ListView_WavHeaderData.Location = new System.Drawing.Point(6, 6);
+            this.ListView_WavHeaderData.Name = "ListView_WavHeaderData";
+            this.ListView_WavHeaderData.Size = new System.Drawing.Size(559, 228);
+            this.ListView_WavHeaderData.TabIndex = 2;
+            this.ListView_WavHeaderData.UseCompatibleStateImageBehavior = false;
+            this.ListView_WavHeaderData.View = System.Windows.Forms.View.Details;
+            this.ListView_WavHeaderData.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.ListView_WavHeaderData_MouseDoubleClick);
+            // 
+            // Col_Name
+            // 
+            this.Col_Name.Text = "Name";
+            this.Col_Name.Width = 166;
+            // 
+            // Col_LoopOffset
+            // 
+            this.Col_LoopOffset.Text = "Loop Offset";
+            this.Col_LoopOffset.Width = 69;
+            // 
+            // Col_Flags
+            // 
+            this.Col_Flags.Text = "Flags";
+            // 
+            // Col_Frequency
+            // 
+            this.Col_Frequency.Text = "Frequency PC";
+            this.Col_Frequency.Width = 90;
+            // 
+            // Col_FrequencyPS2
+            // 
+            this.Col_FrequencyPS2.Text = "Frequency PS2";
+            this.Col_FrequencyPS2.Width = 90;
+            // 
+            // Col_Channels
+            // 
+            this.Col_Channels.Text = "Channels";
+            // 
+            // Col_Bits
+            // 
+            this.Col_Bits.Text = "Bits";
+            this.Col_Bits.Width = 38;
+            // 
+            // Col_Data
+            // 
+            this.Col_Data.Text = "Data Length";
+            this.Col_Data.Width = 74;
+            // 
+            // Col_Encoding
+            // 
+            this.Col_Encoding.Text = "Encoding";
+            // 
+            // Col_Duration
+            // 
+            this.Col_Duration.Text = "Duration (ms)";
+            this.Col_Duration.Width = 75;
+            // 
+            // ListView_StreamData
+            // 
+            this.ListView_StreamData.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ListView_StreamData.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.Col_StreamName,
+            this.Col_FileRef,
+            this.Col_Sound,
+            this.Col_StoredIn});
+            this.ListView_StreamData.FullRowSelect = true;
+            this.ListView_StreamData.GridLines = true;
+            this.ListView_StreamData.HideSelection = false;
+            this.ListView_StreamData.Location = new System.Drawing.Point(6, 6);
+            this.ListView_StreamData.Name = "ListView_StreamData";
+            this.ListView_StreamData.Size = new System.Drawing.Size(559, 229);
+            this.ListView_StreamData.TabIndex = 0;
+            this.ListView_StreamData.UseCompatibleStateImageBehavior = false;
+            this.ListView_StreamData.View = System.Windows.Forms.View.Details;
+            this.ListView_StreamData.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.ListView_StreamData_MouseDoubleClick);
+            // 
+            // Col_StreamName
+            // 
+            this.Col_StreamName.Text = "Name";
+            this.Col_StreamName.Width = 168;
+            // 
+            // Col_FileRef
+            // 
+            this.Col_FileRef.Text = "File Ref";
+            this.Col_FileRef.Width = 62;
+            // 
+            // Col_Sound
+            // 
+            this.Col_Sound.Text = "Sound";
+            this.Col_Sound.Width = 105;
+            // 
+            // Col_StoredIn
+            // 
+            this.Col_StoredIn.Text = "Stored In";
+            this.Col_StoredIn.Width = 178;
+            // 
+            // ListView_Hashcodes
+            // 
+            this.ListView_Hashcodes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ListView_Hashcodes.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.Col_Hashcode_OK,
+            this.Col_Hashcode,
+            this.Col_Hashcode_Label,
+            this.Col_UsedIn,
+            this.Col_Target});
+            this.ListView_Hashcodes.ContextMenuStrip = this.ContextMenu_HashcodesList;
+            this.ListView_Hashcodes.FullRowSelect = true;
+            this.ListView_Hashcodes.GridLines = true;
+            this.ListView_Hashcodes.HideSelection = false;
+            this.ListView_Hashcodes.Location = new System.Drawing.Point(6, 19);
+            this.ListView_Hashcodes.Name = "ListView_Hashcodes";
+            this.ListView_Hashcodes.Size = new System.Drawing.Size(567, 244);
+            this.ListView_Hashcodes.SmallImageList = this.ImageList_ListView;
+            this.ListView_Hashcodes.TabIndex = 0;
+            this.ListView_Hashcodes.UseCompatibleStateImageBehavior = false;
+            this.ListView_Hashcodes.View = System.Windows.Forms.View.Details;
+            this.ListView_Hashcodes.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.ListView_Hashcodes_MouseDoubleClick);
+            // 
+            // Col_Hashcode_OK
+            // 
+            this.Col_Hashcode_OK.Text = "Status";
+            this.Col_Hashcode_OK.Width = 65;
+            // 
+            // Col_Hashcode
+            // 
+            this.Col_Hashcode.Text = "Hashcode";
+            this.Col_Hashcode.Width = 79;
+            // 
+            // Col_Hashcode_Label
+            // 
+            this.Col_Hashcode_Label.Text = "Label";
+            this.Col_Hashcode_Label.Width = 167;
+            // 
+            // Col_UsedIn
+            // 
+            this.Col_UsedIn.Text = "Used By";
+            this.Col_UsedIn.Width = 160;
+            // 
+            // Col_Target
+            // 
+            this.Col_Target.Text = "Target";
             // 
             // Frm_Soundbanks_Main
             // 
@@ -1519,5 +1528,6 @@ namespace EuroSound_Application.SoundBanksEditor
         private System.Windows.Forms.ToolStripSeparator ContextMenuSound_Separator1;
         private System.Windows.Forms.ToolStripMenuItem ContextMenuFolder_Paste;
         private System.Windows.Forms.ToolStripMenuItem ContextMenuAudio_Copy;
+        private System.Windows.Forms.ToolStripMenuItem ContextMenuTargets_Copy;
     }
 }

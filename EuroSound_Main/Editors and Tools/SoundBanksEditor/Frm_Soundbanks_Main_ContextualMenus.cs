@@ -110,7 +110,7 @@ namespace EuroSound_Application.SoundBanksEditor
                         Tag = soundObject.TreeNodeObject.Tag,
                         ForeColor = soundObject.TreeNodeObject.ForeColor
                     };
-                                        
+
                     //Add child nodes
                     if (soundObject.TreeNodeObject.Nodes.Count > 0)
                     {
@@ -254,7 +254,7 @@ namespace EuroSound_Application.SoundBanksEditor
                         TreeNode nodeToAdd = new TreeNode
                         {
                             Name = audioObject.MD5Audio,
-                            Text = audioObject.TreeNodeObject.Text,
+                            Text = GenericFunctions.GetNextAvailableName(audioObject.TreeNodeObject.Text, TreeView_File),
                             SelectedImageIndex = audioObject.TreeNodeObject.SelectedImageIndex,
                             ImageIndex = audioObject.TreeNodeObject.ImageIndex,
                             Tag = audioObject.TreeNodeObject.Tag,
@@ -266,6 +266,47 @@ namespace EuroSound_Application.SoundBanksEditor
 
                 //Clear list
                 Clipboard_ContentLists.AudioObjectsList.Clear();
+            }
+
+            //Target object
+            if (Clipboard_ContentLists.TargetsObjectsList.Count > 0)
+            {
+                //Show alert
+                ProjectInfo.FileHasBeenModified = true;
+
+                //Paste objects
+                foreach (Clipboard_Target targetObject in Clipboard_ContentLists.TargetsObjectsList)
+                {
+                    uint NewSoundKey = GenericFunctions.GetNewObjectID(ProjectInfo);
+                    string targetText = GenericFunctions.GetNextAvailableName(targetObject.TreeNodeObject.Text, TreeView_File);
+                    //Create new target
+                    EXAppTarget targetToAdd = new EXAppTarget
+                    {
+                        Project = targetObject.TargetObject.Project,
+                        Name = targetText,
+                        OutputDirectory = targetObject.TargetObject.OutputDirectory,
+                        BinaryName = targetObject.TargetObject.BinaryName,
+                        UpdateFileList = targetObject.TargetObject.UpdateFileList
+                    };
+
+                    //Add new object
+                    OutputTargets.Add(NewSoundKey, targetToAdd);
+
+                    //Create tree node
+                    TreeNode nodeToAdd = new TreeNode
+                    {
+                        Name = NewSoundKey.ToString(),
+                        Text = targetText,
+                        SelectedImageIndex = targetObject.TreeNodeObject.SelectedImageIndex,
+                        ImageIndex = targetObject.TreeNodeObject.ImageIndex,
+                        Tag = targetObject.TreeNodeObject.Tag,
+                        ForeColor = targetObject.TreeNodeObject.ForeColor
+                    };
+                    TreeView_File.Nodes[3].Nodes.Add(nodeToAdd);
+                }
+
+                //Clear list
+                Clipboard_ContentLists.TargetsObjectsList.Clear();
             }
         }
 
@@ -741,6 +782,9 @@ namespace EuroSound_Application.SoundBanksEditor
 
                 //Add object to list
                 Clipboard_ContentLists.AudioObjectsList.Add(audioObject);
+
+                //Trim list
+                Clipboard_ContentLists.AudioObjectsList.TrimExcess();
             }
         }
 
@@ -782,6 +826,32 @@ namespace EuroSound_Application.SoundBanksEditor
         //*===============================================================================================
         //* ContextMenu_Target
         //*===============================================================================================
+        private void ContextMenuTargets_Copy_Click(object sender, EventArgs e)
+        {
+            EXAppTarget outTarget = OutputTargets[Convert.ToUInt32(TreeView_File.SelectedNode.Name)];
+            if (outTarget != null)
+            {
+                Clipboard_Target targetObject = new Clipboard_Target
+                {
+                    TreeNodeObject = TreeView_File.SelectedNode,
+                    TargetObject = new EXAppTarget()
+                    {
+                        Project = outTarget.Project,
+                        Name = outTarget.Name,
+                        OutputDirectory = outTarget.OutputDirectory,
+                        BinaryName = outTarget.BinaryName,
+                        UpdateFileList = outTarget.UpdateFileList
+                    }
+                };
+
+                //Add object to list
+                Clipboard_ContentLists.TargetsObjectsList.Add(targetObject);
+
+                //Trim list
+                Clipboard_ContentLists.TargetsObjectsList.TrimExcess();
+            }
+        }
+
         private void ContextMenuTargets_Delete_Click(object sender, EventArgs e)
         {
             ToolsCommonFunctions.RemoveTargetSelectedNode(TreeView_File.SelectedNode, OutputTargets, TreeView_File, ProjectInfo);

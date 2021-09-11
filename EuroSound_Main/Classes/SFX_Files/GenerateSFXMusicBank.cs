@@ -267,13 +267,65 @@ namespace EuroSound_Application.Musics
             {
                 if (MusicToCheck.Value.OutputThisSound)
                 {
-                    EXMusic musicToExport = MusicToCheck.Value;
+                    //Check platform
                     if (outputTarget.Equals("PC", StringComparison.OrdinalIgnoreCase))
                     {
-                        FinalSoundsDict.Add(MusicToCheck.Key, musicToExport);
+                        FinalSoundsDict.Add(MusicToCheck.Key, MusicToCheck.Value);
                     }
                     else if (outputTarget.Equals("PS2", StringComparison.OrdinalIgnoreCase))
                     {
+                        //Temporal Music
+                        EXMusic musicToExport = new EXMusic
+                        {
+                            StartMarkers = new List<EXStreamStartMarker>(),
+                            Markers = new List<EXStreamMarker>()
+                        };
+
+                        //Clone Start Markers WITHOUT REFERENCE
+                        foreach (EXStreamStartMarker startMarker in MusicToCheck.Value.StartMarkers)
+                        {
+                            EXStreamStartMarker startMarkerCloned = new EXStreamStartMarker
+                            {
+                                Name = startMarker.Name,
+                                Position = startMarker.Position,
+                                MusicMakerType = startMarker.MusicMakerType,
+                                Flags = startMarker.Flags,
+                                Extra = startMarker.Extra,
+                                LoopStart = startMarker.LoopStart,
+                                MarkerCount = startMarker.MarkerCount,
+                                LoopMarkerCount = startMarker.LoopMarkerCount,
+                                MarkerPos = startMarker.MarkerPos,
+                                IsInstant = startMarker.IsInstant,
+                                InstantBuffer = startMarker.InstantBuffer,
+                                StateA = startMarker.StateA,
+                                StateB = startMarker.StateB
+                            };
+                            musicToExport.StartMarkers.Add(startMarkerCloned);
+                        }
+
+                        //Clone Markers WITHOUT REFERENCE
+                        foreach (EXStreamMarker streamMarker in MusicToCheck.Value.Markers)
+                        {
+                            EXStreamMarker streamMarkerCloned = new EXStreamMarker
+                            {
+                                Name = streamMarker.Name,
+                                Position = streamMarker.Position,
+                                MusicMakerType = streamMarker.MusicMakerType,
+                                Flags = streamMarker.Flags,
+                                Extra = streamMarker.Extra,
+                                LoopStart = streamMarker.LoopStart,
+                                MarkerCount = streamMarker.MarkerCount,
+                                LoopMarkerCount = streamMarker.LoopMarkerCount
+                            };
+                            musicToExport.Markers.Add(streamMarkerCloned);
+                        }
+
+                        //Copy properties
+                        Reflection.CopyProperties(MusicToCheck.Value, musicToExport);
+                        musicToExport.OutputThisSound = MusicToCheck.Value.OutputThisSound;
+                        musicToExport.BaseVolume = MusicToCheck.Value.BaseVolume;
+
+                        //Initialize VAG Encoder
                         AudioFunctions audiof = new AudioFunctions();
                         VAG_Encoder_Decoder.VagFunctions vagF = new VAG_Encoder_Decoder.VagFunctions();
 

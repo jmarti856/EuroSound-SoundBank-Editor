@@ -90,16 +90,22 @@ namespace EuroSound_Application.SoundBanksEditor
             {
                 if (SelectedSound.Samples != null)
                 {
-                    foreach (KeyValuePair<uint, EXSample> storedSample in SelectedSound.Samples)
+                    try
                     {
-                        TreeNode[] nodesCollection = ((Frm_Soundbanks_Main)OpenForm).TreeView_File.Nodes.Find(storedSample.Key.ToString(), true);
-                        if (nodesCollection.Length > 0)
+                        //Prepare List
+                        List_Samples.BeginInvoke((MethodInvoker)delegate
                         {
-                            string sampleName = nodesCollection[0].Text;
+                            List_Samples.BeginUpdate();
+                            List_Samples.Enabled = false;
+                        });
 
-                            //Insert item
-                            try
+                        //Insert items
+                        foreach (KeyValuePair<uint, EXSample> storedSample in SelectedSound.Samples)
+                        {
+                            TreeNode[] nodesCollection = ((Frm_Soundbanks_Main)OpenForm).TreeView_File.Nodes.Find(storedSample.Key.ToString(), true);
+                            if (nodesCollection.Length > 0)
                             {
+                                string sampleName = nodesCollection[0].Text;
                                 List_Samples.Invoke((MethodInvoker)delegate
                                 {
                                     List_Samples.Items.Add(new ListViewItem
@@ -110,14 +116,19 @@ namespace EuroSound_Application.SoundBanksEditor
                                         StateImageIndex = 0
                                     });
                                 });
-                                Thread.Sleep(60);
-                            }
-                            catch
-                            {
-                                //Quit loop, probably the control is disposed
-                                break;
                             }
                         }
+
+                        //Enable List
+                        List_Samples.BeginInvoke((MethodInvoker)delegate
+                        {
+                            List_Samples.EndUpdate();
+                            List_Samples.Enabled = true;
+                        });
+                    }
+                    catch
+                    {
+
                     }
                 }
             })

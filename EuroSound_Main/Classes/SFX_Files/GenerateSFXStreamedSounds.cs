@@ -241,7 +241,6 @@ namespace EuroSound_Application.StreamSounds
             }
         }
 
-
         //*===============================================================================================
         //* FUNCTIONS
         //*===============================================================================================
@@ -257,7 +256,58 @@ namespace EuroSound_Application.StreamSounds
             {
                 if (SoundToCheck.Value.OutputThisSound)
                 {
-                    EXSoundStream soundToExport = SoundToCheck.Value;
+                    //Temporal Music
+                    EXSoundStream soundToExport = new EXSoundStream
+                    {
+                        StartMarkers = new List<EXStreamStartMarker>(),
+                        Markers = new List<EXStreamMarker>()
+                    };
+
+                    //Clone Start Markers WITHOUT REFERENCE
+                    foreach (EXStreamStartMarker startMarker in SoundToCheck.Value.StartMarkers)
+                    {
+                        EXStreamStartMarker startMarkerCloned = new EXStreamStartMarker
+                        {
+                            Name = startMarker.Name,
+                            Position = startMarker.Position,
+                            MusicMakerType = startMarker.MusicMakerType,
+                            Flags = startMarker.Flags,
+                            Extra = startMarker.Extra,
+                            LoopStart = startMarker.LoopStart,
+                            MarkerCount = startMarker.MarkerCount,
+                            LoopMarkerCount = startMarker.LoopMarkerCount,
+                            MarkerPos = startMarker.MarkerPos,
+                            IsInstant = startMarker.IsInstant,
+                            InstantBuffer = startMarker.InstantBuffer,
+                            StateA = startMarker.StateA,
+                            StateB = startMarker.StateB
+                        };
+                        soundToExport.StartMarkers.Add(startMarkerCloned);
+                    }
+
+                    //Clone Markers WITHOUT REFERENCE
+                    foreach (EXStreamMarker streamMarker in SoundToCheck.Value.Markers)
+                    {
+                        EXStreamMarker streamMarkerCloned = new EXStreamMarker
+                        {
+                            Name = streamMarker.Name,
+                            Position = streamMarker.Position,
+                            MusicMakerType = streamMarker.MusicMakerType,
+                            Flags = streamMarker.Flags,
+                            Extra = streamMarker.Extra,
+                            LoopStart = streamMarker.LoopStart,
+                            MarkerCount = streamMarker.MarkerCount,
+                            LoopMarkerCount = streamMarker.LoopMarkerCount
+                        };
+                        soundToExport.Markers.Add(streamMarkerCloned);
+                    }
+
+                    //Copy properties
+                    Reflection.CopyProperties(SoundToCheck.Value, soundToExport);
+                    soundToExport.OutputThisSound = SoundToCheck.Value.OutputThisSound;
+                    soundToExport.BaseVolume = SoundToCheck.Value.BaseVolume;
+
+                    //Check platform
                     if (outputTarget.Equals("PC", StringComparison.OrdinalIgnoreCase))
                     {
                         FinalSoundsDict.Add(SoundToCheck.Key, soundToExport);
